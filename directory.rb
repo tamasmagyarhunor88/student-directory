@@ -22,10 +22,17 @@ def print_header
   puts "------------------------"
 end
 def print(students)
+  puts "choose students by letter"
+  choose_letter = gets.chomp.upcase
   counter = 0
   students.each do |student|
-    counter += 1
-    puts "#{counter}. #{student[:name]}: (#{student[:cohort]} cohort)"
+    if student[:name][0] == choose_letter
+      counter += 1
+      puts "#{counter}. #{student[:name]}: (#{student[:cohort]} cohort)"
+    elsif choose_letter == ""
+      counter += 1
+      puts "#{counter}. #{student[:name]}: (#{student[:cohort]} cohort)"
+    end
   end
 end
 def print_footer(names)
