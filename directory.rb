@@ -1,18 +1,18 @@
 def input_students
-  puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
+  puts "Please enter the names of the students".center(50, ' ')
+  puts "To finish, just hit return twice".center(50, ' ')
   # create an emtpry array
   students = []
   # get the first name
   name = gets.chomp
   # get hobbies
-  puts "hobbies?"
+  puts "hobbies?".center(50, ' ')
   hobbies = gets.chomp
   # get country of birth
-  puts "country?"
+  puts "country?".center(50, ' ')
   country = gets.chomp
   # get height
-  puts "height?"
+  puts "height?".center(50, ' ')
   height = gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
@@ -22,16 +22,16 @@ def input_students
       hobbies: hobbies, country: country,
       height: height
     }
-    puts "Now we have #{students.count} students"
+    puts "Now we have #{students.count} students".center(50, ' ')
     # get another name from the user
-    puts "new student name?"
+    puts "new student name?".center(50, ' ')
     name = gets.chomp
     if name != ""
-      puts "hobbies?"
+      puts "hobbies?".center(50, ' ')
       hobbies = gets.chomp
-      puts "country?"
+      puts "country?".center(50, ' ')
       country = gets.chomp
-      puts "height?"
+      puts "height?".center(50, ' ')
       height = gets.chomp
     end
   end
@@ -40,16 +40,18 @@ def input_students
 end
 
 def print_header
-  puts "The students of MAcademy"
-  puts "------------------------"
+  puts "The students of MAcademy".center(50, ' ')
+  puts "------------------------".center(50, ' ')
 end
 def print(students)
   students.each_with_index do |student, index|
-    puts "#{index+1}. #{student[:name]} : (#{student[:cohort]} cohort) ,hobbies: #{student[:hobbies]}, country of birth: #{student[:country]}, height: #{student[:height]} \n"
+    puts "#{index+1}. #{student[:name]} : (#{student[:cohort]} cohort) ".center(50, ' ')
+    puts "Hobbies: #{student[:hobbies]}, country of birth: #{student[:country]}".center(50, ' ')
+    puts "height: #{student[:height]} \n".center(50, ' ')
   end
 end
 def print_footer(names)
-  puts "Overall, we have an #{names.count} great students"
+  puts "Overall, we have an #{names.count} great students".center(50, ' ')
 end
 
 students = input_students
