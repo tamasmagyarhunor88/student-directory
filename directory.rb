@@ -22,6 +22,7 @@ def print_header
   puts "------------------------"
 end
 def print(students)
+<<<<<<< HEAD
   puts "choose students by letter"
   choose_letter = gets.chomp.upcase
   counter = 0
@@ -33,6 +34,10 @@ def print(students)
       counter += 1
       puts "#{counter}. #{student[:name]}: (#{student[:cohort]} cohort)"
     end
+=======
+  students.each do |student|
+    puts "#{student[:name]}: (#{student[:cohort]} cohort)"
+>>>>>>> parent of 3bd89d2... add counter before student names.
   end
 end
 def print_footer(names)
