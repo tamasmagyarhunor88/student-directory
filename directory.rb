@@ -7,6 +7,32 @@ class String
   end
 end
 
+def interactive_menu
+  students = []
+  loop do
+    # 1. print the menu and ask the user what to do
+    puts "1. Input the students".c50
+    puts "2. Show the students".c50
+    puts "9. Exit".c50
+    # 2. read the input and save it into a variable
+    selection = gets.chomp
+    # 3. do what the user
+    case selection
+    when "1"
+      students = input_students # input the students
+    when "2"
+      print_header # show the students
+      print(students)
+      print_footer(students)
+    when "9"
+      exit # this will cause the program to terminate
+    else
+      puts "I don't know what you meant, try again\n".c50
+    end
+  end
+
+end
+
 def input_students
   puts "Please enter the names of the students".c50
   puts "To finish, just hit return twice".c50
@@ -76,11 +102,13 @@ def print_footer(names)
   end
 
 end
-
+interactive_menu
 students = input_students
 # nothing happens until we call the methods
+=begin
 if !students.empty?
   print_header
   print(students)
   print_footer(students)
 end
+=end
