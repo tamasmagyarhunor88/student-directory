@@ -16,6 +16,15 @@ class String
   end
 end
 
+def load_students
+  file = File.open("students.csv", "r")
+  file.readlines.each do |line|
+    name, cohort = line.chomp.split(",")
+    @students << {name: name, cohort: cohort.to_sym}
+  end
+  file.close
+  puts "Succes! Student list loaded from students.csv\n".c50
+end
 # file opening options Ruby
 # https://stackoverflow.com/questions/3682359/what-are-the-ruby-file-open-modes-and-options
 def save_students
@@ -28,8 +37,7 @@ def save_students
     file.puts csv_line
   end
   file.close
-  puts "Succes! Student list saved to students.csv".c50
-  puts
+  puts "Succes! Student list saved to students.csv\n".c50
 end
 
 def input_students
@@ -66,6 +74,7 @@ def print_menu # 1. print the menu and ask the user what to do
   puts "1. Input the students".c50
   puts "2. Show the students".c50
   puts "3. Save the list to students.csv".c50
+  puts "4. Load students list from students.csv".c50
   puts "9. Exit".c50 # because we'll be adding more items
 end
 
@@ -83,11 +92,12 @@ def process(selection)
       show_students
     when "3"
       save_students
+    when "4"
+      load_students
     when "9"
       exit
     else
-      puts "I don't know what you mean, try again".c50.red
-      puts
+      puts "I don't know what you mean, try again\n".c50.red
   end
 end
 
@@ -106,8 +116,7 @@ def print_footer(names)
   if names.count == 1
     puts "Overall, we have an #{names.count} great student".c50
   else
-    puts "Overall, we have an #{names.count} great students".c50
-    puts
+    puts "Overall, we have an #{names.count} great students\n".c50
   end
 end
 
