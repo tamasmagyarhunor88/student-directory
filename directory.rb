@@ -21,25 +21,11 @@ def input_students
   puts "To finish, just hit return twice".c50
   # get the first name
   name = gets[0..-2]
-  # get hobbies
-  puts "hobbies?".c50
-  hobbies = gets[0..-2]
-  # get country of birth
-  puts "country?".c50
-  country = gets[0..-2]
-  # get height
-  puts "height?".c50
-  height = gets[0..-2]
-  # get fav team
-  puts "favourite sports-team?".c50
-  fav_team = gets[0..-2]
   # while the name is not empty, repeat this code
   while !name.empty?
     # add the student hash to the array
     @students << {
-      name: name, cohort: :november,
-      hobbies: hobbies, country: country,
-      height: height, fav_team: fav_team
+      name: name, cohort: :november
     }
     if @students.count == 1
       puts "Now we have #{@students.count} student.".c50
@@ -49,16 +35,6 @@ def input_students
     # get another name from the user
     puts "new student name?".c50
     name = gets[0..-2]
-    if name != ""
-      puts "hobbies?".c50
-      hobbies = gets[0..-2]
-      puts "country?".c50
-      country = gets[0..-2]
-      puts "height?".c50
-      height = gets[0..-2]
-      puts "fav sports-team?".c50
-      fav_team = gets[0..-2]
-    end
   end
   # return the array of students
 end
@@ -104,8 +80,6 @@ end
 def print_student_list
   @students.each_with_index do |student, index|
     puts "#{index+1}. #{student[:name]} : (#{student[:cohort]} cohort) ".c50
-    puts "Hobbies: #{student[:hobbies]}, country of birth: #{student[:country]}".c50
-    puts "height: #{student[:height]} \n".c50
   end
 end
 
@@ -114,6 +88,7 @@ def print_footer(names)
     puts "Overall, we have an #{names.count} great student".c50
   else
     puts "Overall, we have an #{names.count} great students".c50
+    puts
   end
 end
 
